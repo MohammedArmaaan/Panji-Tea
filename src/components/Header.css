@@ -1,0 +1,139 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(139, 69, 19, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a:active::after {
+  width: 100%;
+}
+
+.nav a:hover {
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.nav-open .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-open .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-open .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .nav-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .nav a {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+  }
+}
