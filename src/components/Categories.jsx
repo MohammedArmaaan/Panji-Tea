@@ -345,8 +345,8 @@ const Categories = ({ isPage = false }) => {
                 </div>
 
                 <div className="modal-actions">
-                  <button className="btn btn-primary" onClick={() => navigate(`/collection/${selectedCategory.id}`)}>
-                    Shop This Collection
+                  <button className="btn btn-primary" onClick={() => navigate(`/Categories`)}>
+                    See This Collection
                   </button>
                 </div>
               </div>
