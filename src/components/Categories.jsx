@@ -227,8 +227,10 @@ const Categories = ({ isPage = false }) => {
         </div>
 
         {/* Main Content Area */}
+        {/* Main Content Area */}
         <div className="categories-content">
-          {isPage ? (
+          {/* CHANGE: Check for isMobile here to force Grid view on mobile */}
+          {(isPage || isMobile) ? (
             // === GRID VIEW ===
             <div className="all-categories-grid">
               {categories.map((category) => (
@@ -238,9 +240,9 @@ const Categories = ({ isPage = false }) => {
               ))}
             </div>
           ) : (
-            // === SLIDER VIEW ===
+            // === SLIDER VIEW (Desktop Home Only) ===
             <div className="categories-slider-wrapper">
-                
+                {/* ... existing slider code ... */}
                 {/* Previous Button (Left) */}
                 <button className="nav-arrow prev-arrow" onClick={handlePrev} aria-label="Previous">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -251,7 +253,7 @@ const Categories = ({ isPage = false }) => {
                 <Swiper
                     modules={[Autoplay, Navigation, EffectFade]}
                     spaceBetween={30}
-                    slidesPerView={1}
+                    slidesPerView={1} // Desktop default
                     breakpoints={{
                         768: { slidesPerView: 2, spaceBetween: 40 }
                     }}

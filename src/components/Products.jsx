@@ -200,7 +200,7 @@ const Products = ({ isPage = false }) => {
               className="btn btn-primary"
               onClick={() => setSelectedProduct(product)}
             >
-              Add to Cart
+              View Details
             </button>
             <button className="btn-favorite">♥</button>
           </div>
@@ -237,8 +237,10 @@ const Products = ({ isPage = false }) => {
         </div>
 
         {/* Main Content Area */}
+        {/* Main Content Area */}
         <div className="products-content">
-          {isPage ? (
+          {/* CHANGE: Added isMobile check here */}
+          {(isPage || isMobile) ? (
             // === GRID VIEW ===
             <div className="all-products-grid">
               {products.map((product) => (
@@ -248,9 +250,11 @@ const Products = ({ isPage = false }) => {
               ))}
             </div>
           ) : (
-            // === SLIDER VIEW ===
+            // === SLIDER VIEW (Desktop Home Only) ===
             <div className="products-slider-wrapper">
-                <button className="nav-arrow prev-arrow" onClick={handlePrev} aria-label="Previous">
+               {/* ... Keep existing slider code ... */}
+               {/* Previous Button */}
+               <button className="nav-arrow prev-arrow" onClick={handlePrev} aria-label="Previous">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <path d="M15 18l-6-6 6-6"></path>
                     </svg>
@@ -260,7 +264,7 @@ const Products = ({ isPage = false }) => {
                     modules={[Autoplay, Navigation, EffectFade]}
                     spaceBetween={30}
                     slidesPerView={1}
-                    centeredSlides={true} /* --- KEEPS CARD CENTERED --- */
+                    centeredSlides={true}
                     breakpoints={{
                         768: { slidesPerView: 1, spaceBetween: 40 }
                     }}
@@ -279,6 +283,7 @@ const Products = ({ isPage = false }) => {
                     ))}
                 </Swiper>
 
+                {/* Next Button */}
                 <button className="nav-arrow next-arrow" onClick={handleNext} aria-label="Next">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <path d="M9 18l6-6-6-6"></path>
@@ -381,7 +386,7 @@ const Products = ({ isPage = false }) => {
 
                 <div className="modal-actions">
                   <button className="btn btn-primary" onClick={() => navigate(`/product/${selectedProduct.id}`)}>
-                    Add to Cart
+                    View Details
                   </button>
                   <button className="btn btn-outline" onClick={() => navigate('/products')}>
                     View All Products

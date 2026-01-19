@@ -88,7 +88,7 @@ const Testimonials = () => {
           position: relative;
         }
         .section-padding {
-          padding: 80px 0;
+          padding: 35px 0;
         }
         .container {
           max-width: 1200px;

@@ -779,37 +779,65 @@
   
   .section-subtitle {
     font-size: 1.1rem;
-    margin-left: 235px;
+    margin-left: 0; /* Fixed margin issue */
   }
   
+  /* --- CHANGED: GRID LAYOUT FOR MOBILE --- */
   .all-categories-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr); /* 2 items per line */
+    gap: 15px; /* Reduced gap to fit screen */
     padding: 10px 0 40px;
   }
   
-  /* UPDATED MOBILE: Buttons ko adjust kiya */
-  .categories-slider-wrapper {
-    padding: 0; /* Mobile pe side padding hatai */
-  }
-  
-  .nav-arrow {
-    width: 44px; /* Thoda chhota kiya */
-    height: 44px;
-    background: rgba(255, 255, 255, 0.9); /* Transparent bg */
-  }
-  
-  .prev-arrow { left: 10px; }
-  .next-arrow { right: 10px; }
-  
+  /* --- CHANGED: COMPACT CARD STYLES FOR 2-COLUMN GRID --- */
   .category-image {
-    height: 240px;
+    height: 160px; /* Smaller image height */
   }
   
   .category-content {
-    padding: 24px;
+    padding: 15px; /* Reduced padding inside card */
+  }
+
+  .category-header h3 {
+    font-size: 1.1rem; /* Smaller title */
+    margin-bottom: 5px;
+  }
+
+  /* Hide Description on Mobile Grid to save space */
+  .category-description {
+    display: none; 
+  }
+
+  /* Compact Meta items (Caffeine/Origin) */
+  .category-meta {
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.75rem;
   }
   
+  .meta-item svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Compact Tags */
+  .packet-types {
+    gap: 4px;
+    margin-bottom: 15px;
+  }
+  
+  .packet-type {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+
+  /* Compact Button */
+  .category-actions .btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* --- MODAL MOBILE ADJUSTMENTS --- */
   .modal-content {
     border-radius: 20px;
   }
@@ -835,17 +863,15 @@
     display: none;
   }
 
-  .view-all-center {
-    order: -1;
-    width: 100%;
-    margin-bottom: 20px;
-    position: static;
-    transform: none;
+  .section-footer {
+    margin-top: 40px;
   }
   
-  .view-all-center .btn-view-all {
+  .btn-view-all-footer {
     width: 100%;
-    max-width: 300px;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.9rem;
   }
 }
 
