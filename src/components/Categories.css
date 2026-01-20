@@ -13,8 +13,9 @@
 
 /* Base Styles */
 .categories {
-  background: var(--gradient-tea);
+  /* background: var(--gradient-tea); */
   position: relative;
+  background-color: whitesmoke;
   overflow: hidden;
   padding: 100px 0;
   scroll-behavior: smooth;
@@ -33,7 +34,7 @@
   z-index: 2;
 }
 
-/* Background Decorations */
+/* Background Decorations
 .bg-decoration {
   position: absolute;
   opacity: 0.1;
@@ -56,7 +57,7 @@
   bottom: 15%;
   right: 5%;
   transform: rotate(-20deg);
-}
+} */
 
 /* Section Header */
 .section-header {

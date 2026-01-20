@@ -1,5 +1,6 @@
 .services {
-  background: white;
+  /* background: white; */
+  background-color: whitesmoke;
   position: relative;
   overflow: hidden;
 }

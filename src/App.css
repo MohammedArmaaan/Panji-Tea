@@ -14,7 +14,7 @@
   --accent-color: #CD853F;
   --text-dark: #2C1810;
   --text-light: #F5F5DC;
-  --background-light: #FFF8DC;
+  --background-light: whitesmoke;
   --background-dark: #2C1810;
   --shadow: rgba(139, 69, 19, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.2);
@@ -93,7 +93,7 @@ img {
   padding: 0.8rem 2rem;
   border: none;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.5rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;

@@ -1,5 +1,6 @@
 .testimonials {
-  background: white;
+  /* background: white; */
+  background-color: whitesmoke;
 }
 
 .testimonials-grid {
@@ -115,7 +116,7 @@
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   border-radius: 20px;
   padding: 3rem 2rem;
-  color: white;
+  color: whitesmoke;
   text-align: center;
 }
 

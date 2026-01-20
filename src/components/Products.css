@@ -12,8 +12,9 @@
 
 /* --- UPDATED BACKGROUND --- */
 .products {
-  background: #FAF7F2; /* New cleaner, warm background */
+  /* background: #FAF7F2; New cleaner, warm background */
   position: relative;
+  background-color: whitesmoke;
   overflow: hidden;
   padding: 100px 0;
   scroll-behavior: smooth;
@@ -150,7 +151,7 @@
 
 /* Details Section */
 .product-details-section {
-  width: 55%;
+  width: 60%;
   padding: 30px; /* Slightly more padding */
   display: flex;
   flex-direction: column;

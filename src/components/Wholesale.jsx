@@ -197,7 +197,7 @@ const Wholesale = () => {
           </div>
         </div>
 
-        <div className="contact-form-section">
+        {/* <div className="contact-form-section"> */}
           <div className="form-content">
             <h3>Start Your Wholesale Partnership</h3>
             <p>Fill out the form below and our wholesale team will contact you within 24 hours to discuss your specific needs.</p>
@@ -336,7 +336,7 @@ const Wholesale = () => {
                 {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
               </button>
             </form>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </section>
