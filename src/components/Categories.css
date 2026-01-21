@@ -1,1025 +1,357 @@
 :root {
-  --primary-color: #2C5530; /* Deep forest green */
-  --secondary-color: #B38B6D; /* Warm bronze */
-  --accent-color: #8B4513; /* Rich sienna */
-  --light-bg: #F9F7F3; /* Warm ivory */
-  --dark-text: #1A1A1A;
-  --light-text: #666666;
-  --shadow-light: rgba(44, 85, 48, 0.1);
-  --shadow-dark: rgba(44, 85, 48, 0.2);
-  --gradient-tea: linear-gradient(135deg, #F9F7F3 0%, #F0ECE4 100%);
-  --scroll-speed: 0.8s; /* Faster scroll speed */
-}
-/* Base Styles */
-.categories {
-  /* background: var(--gradient-tea); */
-  position: relative;
-  background-color: whitesmoke;
-  overflow: hidden;
-  padding: 40px 0;
-  scroll-behavior: smooth;
+  --primary-color: #2C5530; /* Deep Forest Green */
+  --primary-dark: #1e3b21;
+  --secondary-color: #B38B6D; /* Bronze/Gold */
+  --text-dark: #1A1A1A;
+  --text-light: #666;
+  --bg-light: #F9F9F9;
+  --card-bg: #FFFFFF;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 20px 40px rgba(44, 85, 48, 0.15);
+  --transition-smooth: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.categories.page-view {
-  padding: 140px 0 80px;
-  background: #fff;
+/* Section Basics */
+.categories {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+  overflow: hidden;
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 10px;
-  position: relative;
-  z-index: 2;
+  padding: 0 20px;
 }
 
-/* Background Decorations
-.bg-decoration {
-  position: absolute;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.leaf-1 {
-  width: 300px;
-  height: 300px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232C5530' d='M50 0Q75 25 100 50Q75 75 50 100Q25 75 0 50Q25 25 50 0Z'/%3E%3C/svg%3E");
-  top: 10%;
-  left: 5%;
-  transform: rotate(15deg);
-}
-
-.leaf-2 {
-  width: 200px;
-  height: 200px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23B38B6D' d='M50 0Q75 25 100 50Q75 75 50 100Q25 75 0 50Q25 25 50 0Z'/%3E%3C/svg%3E");
-  bottom: 15%;
-  right: 5%;
-  transform: rotate(-20deg);
-} */
-
-/* Section Header */
+/* --- HEADINGS --- */
 .section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  text-align: center;
   margin-bottom: 60px;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.header-content {
-  flex: 1;
-  min-width: 300px;
 }
 
 .section-tag {
   display: inline-block;
-  background: var(--secondary-color);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
+  background: rgba(179, 139, 109, 0.1);
+  color: var(--secondary-color);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .section-header h2 {
-  font-size: 3.2rem;
-  font-weight: 300;
-  color: var(--dark-text);
-  margin-bottom: 15px;
-  line-height: 1.2;
+  font-size: 3rem;
+  color: var(--text-dark);
+  font-family: serif; /* Elegant Look */
+  margin: 0;
 }
 
 .accent-text {
   color: var(--primary-color);
-  font-weight: 600;
+  font-style: italic;
 }
 
-.section-subtitle {
-  color: var(--light-text);
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 235;
-}
-
-.header-cta .btn-view-all-header {
-  background: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  padding: 14px 32px;
-  font-size: 1rem;
-  border-radius: 30px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.header-cta .btn-view-all-header:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-2px);
-  /* Shadow added only on hover */
-  box-shadow: 0 10px 25px var(--shadow-dark);
-}
-
-.header-cta .btn-view-all-header svg {
-  width: 20px;
-  height: 20px;
-  stroke-width: 2.5;
-}
-
-/* Category Card Styles */
-/* 3. Card ko full height aur Flex column banayein */
-.category-card {
-  height: 100%; /* Parent ki full height lega */
-  display: flex;
-  background-color: white;
-  border-radius: 20px;
-  transition: transform 0.3s ease;
+/* --- SWIPER & GRID LAYOUT FIXES --- */
+.categories-slider-wrapper {
   position: relative;
-  flex-direction: column;
-  /* Baaki styling same rakhein jo pehle thi */
+  padding: 0 60px; /* Space for arrows */
 }
 
-/* 4. Image ki height fix rakhein (ye already aapke code mein hai, bas confirm kar lein) */
-.category-image {
-  height: 250px; /* Ya jo bhi size aapko pasand ho, par FIXED hona chahiye */
-  flex-shrink: 0; /* Image shrink nahi honi chahiye */
+.categories-swiper {
+  padding: 0px 10px; /* Padding for shadow overflow */
 }
 
-/* 5. Content area ko 'grow' karein taaki button niche push ho jaye */
-.category-content {
-  flex: 1; /* Ye bachi hui saari jagah le lega */
+/* CRITICAL: Equal Height Fixes */
+.categories-swiper .swiper-slide {
+  height: auto !important;
+  display: flex;
+  justify-content: center;
+}
+
+.slide-inner, .category-card-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- PREMIUM CARD DESIGN --- */
+.category-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Content upar aur button niche */
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.03);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-smooth);
 }
 
-/* 6. Extra: Description ko limit karein (Optional) */
-/* Agar ek card mein text bohot zyada hai, toh wo limits mein rahe */
-.category-description {
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Sirf 3 lines dikhayega */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
+/* Hover Effect: Card Lift */
 .category-card:hover {
   transform: translateY(-10px);
-  /* Shadow added only on hover */
-  /* box-shadow: 0 30px 60px var(--shadow-dark);
-  border-color: var(--secondary-color); */
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(179, 139, 109, 0.3);
 }
 
-.category-badge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: var(--primary-color);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 2;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
+/* Image Area */
 .category-image {
-  position: relative;
-  height: 280px;
+  height: 260px;
+  width: 100%;
   overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .category-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--scroll-speed) ease;
+  transition: transform 0.8s ease; /* Super smooth slow zoom */
 }
 
+/* Hover Effect: Image Zoom */
 .category-card:hover .category-image img {
-  transform: scale(1.08);
+  transform: scale(1.15);
 }
 
+/* Badge over Image */
+.category-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-color);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  backdrop-filter: blur(4px);
+}
+
+/* Overlay Buttons (Hidden by default, appear on hover) */
 .category-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(transparent, rgba(44, 85, 48, 0.9));
-  display: flex;
-  align-items: flex-end;
+  inset: 0;
+  background: rgba(28, 53, 33, 0.4);
   opacity: 0;
-  transition: opacity var(--scroll-speed) ease;
-  padding: 30px;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .category-card:hover .category-overlay {
   opacity: 1;
 }
 
-.overlay-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.overlay-origin {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.btn-explore {
-  background: rgba(255, 255, 255, 0.95);
+.overlay-content .btn-explore {
+  background: white;
   color: var(--primary-color);
   border: none;
-  padding: 12px 24px;
-  border-radius: 12px;
+  padding: 12px 28px;
+  border-radius: 50px;
   font-weight: 600;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s 0.1s ease; /* Delayed animation */
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: fit-content;
-  transition: all 0.3s ease;
+  gap: 8px;
 }
 
-.btn-explore:hover {
-  background: white;
-  transform: translateX(5px);
+.category-card:hover .btn-explore {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.btn-explore svg {
-  width: 20px;
-  height: 20px;
-  stroke-width: 2.5;
-}
-
-/* Card Content */
+/* --- CARD CONTENT --- */
 .category-content {
   padding: 30px;
-  /* Added for Equal Height Alignment */
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
-}
-
-.category-header {
-  margin-bottom: 15px;
 }
 
 .category-header h3 {
-  font-size: 1.5rem;
-  color: var(--dark-text);
-  margin-bottom: 10px;
-  font-weight: 600;
-  /* Added to limit title to 2 lines */
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  margin: 0 0 10px 0;
+  font-family: serif;
+  /* Limit to 2 lines */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 3rem; /* Optional: Keeps alignment even if text is 1 line */
-}
-
-.category-description {
-  color: var(--light-text);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  /* Added to limit description to 3 lines */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  min-height: 3.2rem;
 }
 
 .category-meta {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   margin-bottom: 15px;
+  font-size: 0.85rem;
+  color: #888;
 }
 
 .meta-item {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--light-text);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.meta-item svg {
-  width: 16px;
-  height: 16px;
-  stroke-width: 2.5;
 }
 
 .category-description {
-  color: var(--light-text);
-  line-height: 1.6;
+  color: blanchedalmond;
+  line-height: 1.7;
+  font-size: 0.95rem;
   margin-bottom: 20px;
-  font-size: 1rem;
+  /* Limit text */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
+/* Tags */
 .packet-types {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: auto; /* Push to bottom if content is short */
   margin-bottom: 25px;
 }
 
 .packet-type {
-  background: var(--light-bg);
-  color: var(--primary-color);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  background: #F4F4F4;
+  color: #555;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
   font-weight: 500;
-  border: 1px solid rgba(44, 85, 48, 0.1);
+  letter-spacing: 0.5px;
 }
 
-.category-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: auto;
-}
-
-.btn {
-  cursor: pointer;
+/* Action Button */
+.category-actions .btn-primary {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary-color);
+  color: white;
   border: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 12px 24px;
   border-radius: 12px;
-  transition: all var(--scroll-speed) ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  /* Shadow removed from default state */
-  box-shadow: none;
-}
-
-.btn-primary {
-  background: var(--primary-color);
-  color: white;
-  flex: 2;
-}
-
-.btn-primary:hover {
-  background: #244529;
-  transform: translateY(-2px);
-  /* Shadow added only on hover */
-  box-shadow: 0 5px 15px rgba(44, 85, 48, 0.3);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  flex: 1;
-}
-
-.btn-outline:hover {
-  background: var(--primary-color);
-  color: white;
-  /* Shadow added only on hover */
-  box-shadow: 0 5px 15px rgba(44, 85, 48, 0.3);
-}
-
-/* ==========================================================================
-   UPDATED SLIDER & BUTTON STYLES (Left/Right Arrows)
-   ========================================================================== */
-
-/* 1. Wrapper ko relative aur padding di taaki arrows content pe overlap na karein */
-.categories-slider-wrapper {
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
   position: relative;
-  padding: 0 70px; /* Left-Right me 70px jagah banayi arrows ke liye */
+  overflow: hidden;
 }
 
-/* .categories-swiper {
-  padding: 20px 0;
-} */
-
-.slide-inner {
-  height: 100%;
-  padding: 10px;
+.category-actions .btn-primary:hover {
+  background: var(--primary-dark);
+  letter-spacing: 2px; /* Text expands on hover */
+  box-shadow: 0 10px 20px rgba(44, 85, 48, 0.2);
 }
 
-/* 2. New Arrow Styles (Replacing old bottom navigation styles) */
-/* Design same rakha hai jo pehle '.custom-nav-btn' ka tha */
+/* --- NAVIGATION ARROWS (Floating) --- */
 .nav-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); /* Vertically Center */
-  width: 56px; /* Same size as previous design */
-  height: 56px;
-  border-radius: 35%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
   background: white;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--scroll-speed) ease;
-  z-index: 10; /* Slider ke upar dikhe */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Same subtle shadow */
-}
-
-/* Positioning */
-.prev-arrow {
-  left: 0;
-}
-
-.next-arrow {
-  right: 0;
-}
-
-/* Hover Effect (Same as previous design) */
-.nav-arrow:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-50%) scale(1.1); /* Center rehte hue scale */
-  box-shadow: 0 12px 25px var(--shadow-dark);
-}
-
-.nav-arrow svg {
-  width: 24px;
-  height: 24px;
-  stroke-width: 2.5;
-}
-
-/* ========================================================================== */
-
-/* Grid Layout */
-.all-categories-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  padding: 20px 0 80px;
-}
-
-.category-card-wrapper {
-  display: flex;
-}
-
-/* Mobile View All */
-.mobile-view-all {
-  display: none;
-  margin-top: 40px;
-  text-align: center;
-}
-
-.mobile-view-all .btn-primary {
-  padding: 16px 40px;
-  font-size: 1.1rem;
-}
-
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  padding: 20px;
-  backdrop-filter: blur(8px);
-  animation: fadeIn var(--scroll-speed) ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.modal-content {
-  background: white;
-  border-radius: 32px;
-  max-width: 1200px;
-  width: 95%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  animation: slideUp var(--scroll-speed) cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  background: var(--dark-text);
-  color: white;
-  border: none;
-  width: 48px;
-  height: 48px;
+  border: 1px solid #eee;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--text-dark);
   cursor: pointer;
   z-index: 10;
-  transition: all var(--scroll-speed) ease;
-  /* Shadow removed from default state */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
-.modal-close:hover {
-  background: #333;
-  transform: rotate(90deg);
-  /* Shadow added only on hover */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-.modal-close svg {
-  width: 24px;
-  height: 24px;
-  stroke-width: 2.5;
-}
-
-.modal-header {
-  padding: 40px 40px 20px;
-}
-
-.modal-tags {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 15px;
-}
-
-.modal-tag {
+.nav-arrow:hover {
   background: var(--primary-color);
   color: white;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  transform: translateY(-50%) scale(1.1);
+  border-color: var(--primary-color);
 }
 
-.modal-origin {
-  background: var(--light-bg);
-  color: var(--primary-color);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
+.prev-arrow { left: 0; }
+.next-arrow { right: 0; }
 
-.modal-header h2 {
-  font-size: 2.5rem;
-  color: var(--dark-text);
-  margin: 0;
-  font-weight: 600;
-}
-
-.modal-body {
-  display: flex;
-  padding: 20px 40px 40px;
-  gap: 40px;
-}
-
-.modal-image-section {
-  flex: 1;
-  min-width: 300px;
-}
-
-.modal-image-wrapper {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 100%;
-  /* Shadow removed from default state */
-  box-shadow: none;
-}
-
-.modal-image-wrapper:hover {
-  /* Shadow added only on hover if needed */
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-.modal-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  min-height: 400px;
-}
-
-.image-overlay-info {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 20px;
-  border-radius: 16px;
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-  backdrop-filter: blur(10px);
-}
-
-.info-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-
-.info-label {
-  font-size: 0.8rem;
-  color: var(--light-text);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.info-value {
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.modal-details {
-  flex: 1.5;
-  min-width: 300px;
-}
-
-.modal-description {
-  color: var(--light-text);
-  line-height: 1.8;
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-}
-
-.detail-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.varieties-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 15px;
-}
-
-.variety-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: var(--light-bg);
-  border-radius: 12px;
-  transition: all var(--scroll-speed) ease;
-  /* Shadow removed from default state */
-  box-shadow: none;
-}
-
-.variety-card:hover {
-  background: rgba(44, 85, 48, 0.1);
-  transform: translateX(5px);
-  /* Shadow added only on hover */
-  box-shadow: 0 5px 15px rgba(44, 85, 48, 0.1);
-}
-
-.variety-icon {
-  color: var(--primary-color);
-}
-
-.variety-icon svg {
-  width: 20px;
-  height: 20px;
-  stroke-width: 2.5;
-}
-
-.benefits-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
-}
-
-.benefits-list li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  color: var(--light-text);
-}
-
-.benefit-icon {
-  color: var(--primary-color);
-}
-
-.benefit-icon svg {
-  width: 16px;
-  height: 16px;
-  stroke-width: 2.5;
-}
-
-.modal-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.modal-actions .btn {
-  /* Shadow removed from default state */
-  box-shadow: none;
-}
-
-.modal-actions .btn:hover {
-  /* Shadow added only on hover */
-  box-shadow: 0 5px 15px rgba(44, 85, 48, 0.3);
-}
-
-.btn-text {
-  background: transparent;
-  color: var(--primary-color);
-  text-decoration: underline;
-  padding: 12px 0;
-}
-
-.btn-text:hover {
-  color: #244529;
-}
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  .all-categories-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  
-  .modal-body {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .modal-image-section,
-  .modal-details {
-    width: 100%;
-  }
-  
-  .modal-image-wrapper img {
-    min-height: 300px;
-  }
-}
-
-@media (max-width: 992px) {
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .section-header h2 {
-    font-size: 2.5rem;
-  }
-  
-  .detail-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .view-all-center {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .categories {
-    padding: 60px 0;
-  }
-  
-  .categories.page-view {
-    padding: 100px 0 40px;
-  }
-  
-  .section-header h2 {
-    font-size: 2rem;
-  }
-  
-  .section-subtitle {
-    font-size: 1.1rem;
-    margin-left: 0; /* Fixed margin issue */
-  }
-  
-  /* --- CHANGED: GRID LAYOUT FOR MOBILE --- */
-  .all-categories-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per line */
-    gap: 15px; /* Reduced gap to fit screen */
-    padding: 10px 0 40px;
-  }
-  
-  /* --- CHANGED: COMPACT CARD STYLES FOR 2-COLUMN GRID --- */
-  .category-image {
-    height: 160px; /* Smaller image height */
-  }
-  
-  .category-content {
-    padding: 15px; /* Reduced padding inside card */
-  }
-
-  .category-header h3 {
-    font-size: 1.1rem; /* Smaller title */
-    margin-bottom: 5px;
-  }
-
-  /* Hide Description on Mobile Grid to save space */
-  .category-description {
-    display: none; 
-  }
-
-  /* Compact Meta items (Caffeine/Origin) */
-  .category-meta {
-    gap: 8px;
-    margin-bottom: 10px;
-    font-size: 0.75rem;
-  }
-  
-  .meta-item svg {
-    width: 12px;
-    height: 12px;
-  }
-
-  /* Compact Tags */
-  .packet-types {
-    gap: 4px;
-    margin-bottom: 15px;
-  }
-  
-  .packet-type {
-    padding: 4px 8px;
-    font-size: 0.7rem;
-  }
-
-  /* Compact Button */
-  .category-actions .btn {
-    padding: 8px 12px;
-    font-size: 0.85rem;
-  }
-
-  /* --- MODAL MOBILE ADJUSTMENTS --- */
-  .modal-content {
-    border-radius: 20px;
-  }
-  
-  .modal-header,
-  .modal-body {
-    padding: 24px;
-  }
-  
-  .modal-header h2 {
-    font-size: 1.8rem;
-  }
-  
-  .modal-actions {
-    flex-direction: column;
-  }
-  
-  .mobile-view-all {
-    display: block;
-  }
-  
-  .header-cta {
-    display: none;
-  }
-
-  .section-footer {
-    margin-top: 40px;
-  }
-  
-  .btn-view-all-footer {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 20px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .category-meta {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .category-actions {
-    flex-direction: column;
-  }
-  
-  .btn {
-    width: 100%;
-  }
-  
-  .modal-body {
-    padding: 20px;
-  }
-  
-  .image-overlay-info {
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-  }
-  
-  .slider-dots {
-    order: 1;
-    margin: 0;
-  }
-}
-/* --- FOOTER BUTTON STYLES (BOTTOM) --- */
+/* --- VIEW ALL BUTTON (Bottom) --- */
 .section-footer {
-  margin-top: 60px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .btn-view-all-footer {
   background: transparent;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
-  padding: 16px 48px;
+  padding: 15px 40px;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-transform: uppercase;
   letter-spacing: 1.5px;
-}
-
-.btn-view-all-footer svg {
-  transition: transform 0.3s ease;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .btn-view-all-footer:hover {
   background: var(--primary-color);
   color: white;
+  box-shadow: 0 10px 20px rgba(44, 85, 48, 0.2);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(44, 85, 48, 0.25);
 }
 
-.btn-view-all-footer:hover svg {
-  transform: translateX(5px);
-}
-
-/* Header CTA ko hide kar dein agar purani class reh gayi ho */
-.header-cta {
-  display: none !important;
-}
-
-/* Mobile Responsiveness for footer button */
+/* --- RESPONSIVE / MOBILE --- */
 @media (max-width: 768px) {
-  .section-footer {
-    margin-top: 40px;
+  .categories-slider-wrapper { padding: 0; }
+  .section-header h2 { font-size: 2rem; }
+  
+  /* Mobile Grid */
+  .all-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 10px;
   }
   
-  .btn-view-all-footer {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 20px;
-    font-size: 0.9rem;
+  /* Hide arrows on mobile since we use grid */
+  .nav-arrow { display: none; }
+
+  /* Compact Card for Mobile */
+  .category-card { border-radius: 16px; }
+  .category-image { height: 160px; }
+  .category-content { padding: 15px; }
+  .category-header h3 { font-size: 1.1rem; min-height: 2.5rem; margin-bottom: 5px; }
+  .category-description { display: none; } /* Clean look */
+  .packet-types { display: none; } /* Too cluttered for mobile grid */
+  .category-meta { margin-bottom: 10px; font-size: 0.7rem; }
+  
+  .category-actions .btn-primary {
+    padding: 10px;
+    font-size: 0.75rem;
   }
-}
-/* Categories.css ke end mein add karein */
-
-/* 1. Swiper Slide ko stretch karein taaki wo sabse lambe card ke barabar ho jaye */
-.categories-swiper .swiper-slide {
-  height: auto !important;
-  display: flex; /* Isse andar wala element full height le payega */
-  justify-content: center;
-}
-
-/* 2. Slide ke andar wale wrapper ko full height dein */
-.slide-inner {
-  height: 100%; 
-  width: 100%;
-  display: flex; /* Flex zaruri hai taaki card stretch ho */
 }

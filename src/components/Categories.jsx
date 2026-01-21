@@ -130,7 +130,7 @@ const Categories = ({ isPage = false }) => {
         <img src={category.image} alt={category.name} loading="lazy" />
         <div className="category-overlay">
           <div className="overlay-content">
-            <span className="overlay-origin">{category.origin}</span>
+            {/* <span className="overlay-origin">{category.origin}</span> */}
             <button
               className="btn btn-explore"
               onClick={(e) => {
