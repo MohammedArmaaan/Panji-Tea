@@ -13,14 +13,14 @@ const Services = () => {
     {
       id: 2,
       name: 'Custom Blends',
-      description: 'Create your own unique tea blend with our tea sommeliers. Perfect for gifts, special occasions, or personal preferences tailored to your taste.',
+      description: 'Create your own unique tea blend with our tea sommeliers. Perfect for gifts, special occasions, Late Night and Early Morning Functions or personal preferences tailored to your taste.',
       icon: '🎁',
       features: ['Personal consultation', 'Custom packaging', 'Quality guarantee', 'Unique recipes']
     },
     {
       id: 3,
       name: 'Tea Workshops',
-      description: 'Learn the art of tea making, from brewing techniques to pairing suggestions. Master the skills to become your own tea expert.',
+      description: 'Learn the art of tea making, from brewing techniques to pairing suggestions. Master the tea making skills to become your own tea expert.',
       icon: '📚',
       features: ['Hands-on learning', 'Recipe cards', 'Take-home samples', 'Certificate included']
     },

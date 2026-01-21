@@ -84,7 +84,7 @@ const Testimonials = () => {
       <style>{`
         /* --- GLOBAL & STRUCTURE --- */
         .testimonials {
-          background-color: #f9f9f9; /* Original Background */
+          background-color: whitesmoke; /* Original Background */
           position: relative;
         }
         .section-padding {
