@@ -34,9 +34,9 @@
 }
 
 /* --- UPDATED DECORATION (Moved slightly for different feel) --- */
-.bg-decoration {
+/* .bg-decoration {
   position: absolute;
-  opacity: 0.08; /* Slightly softer */
+  opacity: 0.08; 
   pointer-events: none;
 }
 .leaf-1 {
@@ -48,7 +48,7 @@
   width: 250px; height: 250px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23B38B6D' d='M50 0Q75 25 100 50Q75 75 50 100Q25 75 0 50Q25 25 50 0Z'/%3E%3C/svg%3E");
   bottom: 10%; right: -2%; transform: rotate(-10deg);
-}
+} */
 
 /* Section Header */
 .section-header {

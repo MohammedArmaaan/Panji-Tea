@@ -367,106 +367,221 @@
   transform: none;
 }
 
-/* --- MOBILE VIEW OPTIMIZATION (Desktop Layout but Scaled Down) --- */
+
+/* --- MOBILE VIEW OPTIMIZATION (Mini-Desktop View) --- */
 @media (max-width: 768px) {
   
-  /* Container mein jagah bachane ke liye padding kam ki */
+  /* Container padding fix */
   .container {
-    padding: 0 px; 
+    padding: 0 12px;
+    max-width: 100vw;
+    overflow-x: hidden; /* Horizontal scroll rokne ke liye */
   }
 
-  /* --- 1. FONTS ADJUSTMENT (Size kam kiya taaki fit ho) --- */
+  /* Section Headers Compact */
   .section-header h2 {
-    font-size: 1.5rem; /* Heading choti ki */
-    margin-bottom: 1.5rem;
-  }
-
-  .overview-content h3, 
-  .benefits-section h3, 
-  .pricing-section h3, 
-  .form-content h3 {
-    font-size: 1.25rem; /* Sub-headings adjust */
+    font-size: 1.4rem;
     margin-bottom: 1rem;
   }
-
-  p, .overview-content p, .benefit-card p {
-    font-size: 0.75rem; /* Paragraph text chota aur readable */
-    line-height: 1.4;
-    margin-right: 70px;
+  
+  .section-header p {
+    font-size: 0.8rem;
   }
 
-  /* --- 2. LAYOUT SCALING (Gap kam kiya) --- */
+  /* --- 1. OVERVIEW SECTION (Side-by-Side maintain karne ke liye) --- */
   .wholesale-overview {
-    grid-template-columns: 1fr 1fr; /* Structure same rakha */
-    gap: 15px; /* Gap kam kiya taaki content chipke nahi */
-    margin-bottom: 2rem;
+    display: grid;
+    /* Text ko thoda zyada space (1.2fr), Image ko thoda kam (0.8fr) */
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 12px;
+    margin-bottom: 3rem;
+    align-items: center;
+  }
+
+  .overview-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .overview-content p {
+    font-size: 0.65rem; /* Text chota kiya taaki fit ho */
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+    margin-right: 0; /* Woh 70px margin hata diya, grid handle karega */
+    color: #444;
   }
 
   .overview-image img {
-    height: 150px; /* Image height kam ki */
-    border-radius: 10px;
-    /* margin-top: -75px; */
-    /* margin-left: -70px; */
+    width: 100%;
+    height: 160px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
 
-  .benefits-grid, .pricing-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns jabardasti */
-    gap: 8px; /* Cards ke beech gap kam kiya */
-    margin-bottom: 2rem;
+  /* Stats ko compact kiya */
+  .overview-stats {
+    gap: 8px;
+    flex-wrap: wrap; /* Agar jagah kam ho to wrap ho jaye */
   }
 
-  .benefit-card, .pricing-card {
-    padding: 12px; /* Card ke andar ki spacing kam ki */
+  .stat-number { font-size: 0.9rem; }
+  .stat-text { font-size: 0.5rem; }
+
+  /* --- 2. BENEFITS & PRICING (Strict 2 Columns Grid) --- */
+  .benefits-section h3, 
+  .pricing-section h3,
+  .form-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefits-grid, 
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Force 2 Columns exactly like Desktop */
+    gap: 8px; /* Gap kam kiya */
+    margin-bottom: 3rem;
+  }
+
+  /* Benefit Card Compact */
+  .benefit-card {
+    padding: 12px 8px;
     border-radius: 10px;
   }
 
   .benefit-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-  .benefit-card h4 { font-size: 0.85rem; margin-bottom: 0.3rem; }
-  
-  /* Pricing Card Specifics */
-  .pricing-header h4 { font-size: 0.9rem; }
-  .discount { font-size: 1.2rem; }
-  .volume { font-size: 0.7rem; margin-bottom: 0.5rem; }
-  .pricing-features li { font-size: 0.7rem; padding: 4px 0; }
-  .pricing-card .btn { padding: 6px 12px; font-size: 0.7rem; }
+  .benefit-card h4 { font-size: 0.75rem; margin-bottom: 0.3rem; }
+  .benefit-card p { font-size: 0.6rem; line-height: 1.2; margin: 0; }
 
-  /* --- 3. FORM & FIELDS (Compact size) --- */
-  .contact-form-section {
-    padding: 1.5rem 0.5rem; /* Side padding bohot kam ki */
-    margin: 0;
-    border-radius: 15px;
+  /* Pricing Card Compact (Sabse critical part) */
+  .pricing-card {
+    padding: 12px 6px; /* Side padding bohot kam taaki content na kate */
+    border-radius: 10px;
   }
 
+  .pricing-header { margin-bottom: 0.5rem; }
+  .pricing-header h4 { font-size: 0.8rem; }
+  .discount { font-size: 1.1rem; }
+  
+  .volume { 
+    font-size: 0.6rem; 
+    margin-bottom: 0.8rem; 
+    white-space: nowrap; /* Text wrap rokne ke liye agar zaroori ho */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pricing-features { margin-bottom: 1rem; }
+  .pricing-features li {
+    font-size: 0.6rem; /* List text small */
+    padding: 3px 0;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .pricing-card .btn {
+    padding: 6px 0;
+    width: 100%;
+    font-size: 0.7rem;
+    border-radius: 20px;
+  }
+
+  /* --- 3. FORM SECTION (Side-by-Side Inputs) --- */
+  .contact-form-section {
+    box-shadow: none; /* Mobile pe shadow hata di clean look ke liye */
+    border: none;
+    padding: 0;
+  }
+  
+  .form-content > p {
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0 10px;
+  }
+
+  /* --- FORM FIXES START HERE --- */
+
   .wholesale-form {
-    padding: 15px; /* Form ke andar jagah banayi */
-    gap: 1rem;
+    width: 100%;
+    /* Mobile me side padding kam ki taaki fields ko jagah mile */
+    padding: 1.5rem 10px; 
+    gap: 12px;
+    box-sizing: border-box; /* Yeh zaroori hai */
+    overflow: hidden; /* Safety: Agar kuch bahar jaye to scroll na aaye */
   }
 
   .form-row {
-    grid-template-columns: 1fr 1fr; /* Inputs side-by-side */
-    gap: 10px; /* Inputs ke beech gap */
+    display: grid;
+    /* Side-by-side inputs (Desktop style) */
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
+  /* Har input group ko cell ke andar limit karna */
+  .form-group {
+    width: 100%;
+    min-width: 0; /* Flex/Grid child ko overflow se rokne ke liye magic fix */
+    position: relative;
+  }
+
+  /* Label styling adjust */
   .form-group label {
-    font-size: 0.75rem; /* Label chota kiya */
-    margin-bottom: 0.3rem;
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+    white-space: nowrap; /* Label ek line me rahe */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Agar label bada ho to '...' dikhaye */
+    display: block;
+    width: 100%;
   }
 
-  /* Input Fields ko Mobile Friendly banaya */
+  /* INPUT FIELDS FIX - Sabse important part */
   .form-group input,
   .form-group select,
   .form-group textarea {
-    padding: 8px 10px; /* Padding kam ki */
-    font-size: 0.8rem; /* Typing text size */
-    height: auto; /* Height auto adjust hone de */
+    width: 100%; /* Parent ki width follow kare */
+    padding: 10px 8px; /* Padding adjust ki */
+    font-size: 0.8rem;
+    
+    /* Yeh property overflow rokti hai: Padding width ke andar count hogi */
+    box-sizing: border-box; 
+    
     border-radius: 8px;
-    border-width: 1px; /* Border patla kiya */
+    height: auto; /* Height fix nahi rakhni */
+    max-width: 100%; /* Container se bahar jane se rokega */
   }
 
-  /* Submit Button Scale */
+  /* Textarea ko full width dena */
+  .form-group.full-width textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Button ko fit karna */
   .submit-btn {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  /* Additional: Agar koi conditional input (Other/Custom) khule */
+  .conditional-input {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  /* --- FORM FIXES END --- */
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
     font-size: 0.9rem;
     margin-top: 1rem;
   }
