@@ -33,7 +33,7 @@
   margin: 0;
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: #046537;
   font-family: 'Playfair Display', serif;
 }
 
@@ -61,7 +61,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, #046537, #05713f);
   transition: width 0.3s ease;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .nav a:hover {
-  color: var(--primary-color);
+  color: #046537;
   transform: translateY(-1px);
 }
 
@@ -85,7 +85,7 @@
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: var(--primary-color);
+  background: #046537;
   transition: all 0.3s ease;
   transform-origin: center;
 }

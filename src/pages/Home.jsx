@@ -12,14 +12,13 @@ import Newsletter from '../components/Newsletter';
 
 const Home = () => {
   return (
-    <div>
+    <div> 
       <Hero />
       <About />
       
       {/* Yahan koi prop nahi diya, iska matlab isPage={false} (Slider View) */}
       <Categories /> 
-      
-<Products />  {/* Slider View (Automatic) */}
+      <Products />  {/* Slider View (Automatic) */}
       <Wholesale />
       <Services />
       <Testimonials />

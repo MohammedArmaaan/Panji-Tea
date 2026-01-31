@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+import { MdHeight } from 'react-icons/md';
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +19,9 @@ const Header = () => {
     <header className="header">
       <div className="container header-container">
         <Link to="/" className="logo" onClick={closeMenu}>
-          <span className="logo-icon">🍵</span>
+          <span className="logo-icon">
+            <img style={{ height: "48px", width: "50px", marginTop: "10px" }} src="/images/download.png" alt="Logo" />
+          </span>
           <h1>Panji Tea</h1>
         </Link>
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>

@@ -174,8 +174,8 @@
 .contact-form-section {
   /* background: linear-gradient(135deg, rgba(255, 248, 220, 0.8), rgba(245, 245, 220, 0.8)); */
   border-radius: 25px;
-  padding: 4rem 3rem;
-  margin: 0 -3rem;
+  /* padding: 4rem 3rem; */
+  /* margin: 0 -3rem; */
   box-shadow: 0 20px 60px rgba(139, 69, 19, 0.15);
   border: 2px solid rgba(139, 69, 19, 0.1);
   position: relative;
@@ -367,44 +367,107 @@
   transform: none;
 }
 
+/* --- MOBILE VIEW OPTIMIZATION (Desktop Layout but Scaled Down) --- */
 @media (max-width: 768px) {
+  
+  /* Container mein jagah bachane ke liye padding kam ki */
+  .container {
+    padding: 0 px; 
+  }
+
+  /* --- 1. FONTS ADJUSTMENT (Size kam kiya taaki fit ho) --- */
+  .section-header h2 {
+    font-size: 1.5rem; /* Heading choti ki */
+    margin-bottom: 1.5rem;
+  }
+
+  .overview-content h3, 
+  .benefits-section h3, 
+  .pricing-section h3, 
+  .form-content h3 {
+    font-size: 1.25rem; /* Sub-headings adjust */
+    margin-bottom: 1rem;
+  }
+
+  p, .overview-content p, .benefit-card p {
+    font-size: 0.75rem; /* Paragraph text chota aur readable */
+    line-height: 1.4;
+    margin-right: 70px;
+  }
+
+  /* --- 2. LAYOUT SCALING (Gap kam kiya) --- */
   .wholesale-overview {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr; /* Structure same rakha */
+    gap: 15px; /* Gap kam kiya taaki content chipke nahi */
+    margin-bottom: 2rem;
   }
 
-  .overview-stats {
-    flex-direction: column;
-    gap: 1.5rem;
+  .overview-image img {
+    height: 150px; /* Image height kam ki */
+    border-radius: 10px;
+    /* margin-top: -75px; */
+    /* margin-left: -70px; */
   }
 
-  .benefits-grid {
-    grid-template-columns: 1fr;
+  .benefits-grid, .pricing-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns jabardasti */
+    gap: 8px; /* Cards ke beech gap kam kiya */
+    margin-bottom: 2rem;
   }
 
-  .pricing-grid {
-    grid-template-columns: 1fr;
+  .benefit-card, .pricing-card {
+    padding: 12px; /* Card ke andar ki spacing kam ki */
+    border-radius: 10px;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-  }
+  .benefit-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .benefit-card h4 { font-size: 0.85rem; margin-bottom: 0.3rem; }
+  
+  /* Pricing Card Specifics */
+  .pricing-header h4 { font-size: 0.9rem; }
+  .discount { font-size: 1.2rem; }
+  .volume { font-size: 0.7rem; margin-bottom: 0.5rem; }
+  .pricing-features li { font-size: 0.7rem; padding: 4px 0; }
+  .pricing-card .btn { padding: 6px 12px; font-size: 0.7rem; }
 
+  /* --- 3. FORM & FIELDS (Compact size) --- */
   .contact-form-section {
+    padding: 1.5rem 0.5rem; /* Side padding bohot kam ki */
     margin: 0;
-    padding: 2rem 1rem;
+    border-radius: 15px;
   }
 
   .wholesale-form {
-    padding: 2rem 1.5rem;
+    padding: 15px; /* Form ke andar jagah banayi */
+    gap: 1rem;
   }
 
-  .form-content h3 {
-    font-size: 2rem;
+  .form-row {
+    grid-template-columns: 1fr 1fr; /* Inputs side-by-side */
+    gap: 10px; /* Inputs ke beech gap */
   }
 
+  .form-group label {
+    font-size: 0.75rem; /* Label chota kiya */
+    margin-bottom: 0.3rem;
+  }
+
+  /* Input Fields ko Mobile Friendly banaya */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 8px 10px; /* Padding kam ki */
+    font-size: 0.8rem; /* Typing text size */
+    height: auto; /* Height auto adjust hone de */
+    border-radius: 8px;
+    border-width: 1px; /* Border patla kiya */
+  }
+
+  /* Submit Button Scale */
   .submit-btn {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
   }
 }
