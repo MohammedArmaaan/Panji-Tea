@@ -16,7 +16,7 @@
 }
 
 .about-text h2 {
-  color: var(--primary-color);
+  color: #18a85d;
   margin-bottom: 2rem;
   font-size: 2.5rem; /* Thoda adjust kiya taaki mobile me kate nahi */
 }
@@ -35,8 +35,8 @@
   gap: 1rem;
   margin-top: 3rem;
   padding: 2rem 0;
-  border-top: 2px solid rgba(139, 69, 19, 0.2);
-  border-bottom: 2px solid rgba(139, 69, 19, 0.2);
+  border-top: 2px solid rgba(59, 164, 113, 0.677);
+  border-bottom: 2px solid rgba(59, 164, 113, 0.677);
 }
 
 .stat-item {
@@ -46,7 +46,7 @@
 .stat-number {
   font-size: 1.8rem; /* Font thoda chota kiya taaki 4 ek line me aa sakein */
   font-weight: 700;
-  color: var(--primary-color);
+  color: #18a85d;
   margin-bottom: 0.5rem;
 }
 
@@ -95,7 +95,7 @@
 
 .value-card:hover {
   transform: translateY(-5px);
-  border-color: var(--primary-color);
+  border-color: #1dc374;
 }
 
 .value-icon {
@@ -194,7 +194,7 @@
   }
 
   .stat-label {
-    font-size: 0.55rem; /* Label bahot chota taaki ek line me aaye */
+    font-size: 8px !important; /* Label bahot chota taaki ek line me aaye */
     line-height: 1.1;
     margin-top: 2px;
     white-space: nowrap; /* Text ko tutne se rokega (e.g. Happy Customers) */
