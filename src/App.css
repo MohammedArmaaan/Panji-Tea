@@ -9,10 +9,10 @@
   max-width: none; /* Ya ise remove kar dein */
   margin: 0;
   padding: 0;
-  --primary-color: #8B4513;
-  --secondary-color: #D2691E;
-  --accent-color: #CD853F;
-  --text-dark: #2C1810;
+  --primary-color: #016232;
+  --secondary-color: #016232;
+  --accent-color: #075c31;
+  --text-dark: #016232;
   --text-light: #F5F5DC;
   --background-light: whitesmoke;
   --background-dark: #2C1810;
@@ -145,7 +145,7 @@ img {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .section-padding {
-    padding: 3rem 0;
+    padding: 2rem 0;
   }
 
   .container {

@@ -1,10 +1,12 @@
 import React from 'react';
 import './Footer.css';
+import { RiLayoutBottomLine } from 'react-icons/ri';
 
 const Footer = () => {
   return (
     <footer id="contact" className="footer">
-      <div className="container">
+      {/* not applied this container ? the below container with must */}
+      <div className="container" style={{maxWidth: '100%', margin: '0 auto', padding: '0 20px'}}>
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
@@ -69,7 +71,9 @@ const Footer = () => {
         </div>
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p>&copy; 2024 Panji Tea. All rights reserved.</p>
+            <p>&copy; 2026 Panji Tea. All rights reserved.</p>
+            {/* add underline in my name on hover link open in new page  */}
+            <p>Designed and Developed with ❤️ by <a style={{color: '#11834a', textDecoration: 'none', transition: 'text-decoration 0.3s ease'}} onMouseEnter={(e) => e.target.style.textDecoration = 'underline'} onMouseLeave={(e) => e.target.style.textDecoration = 'none'} href="https://portfolio-two-orpin-iduwz1b5z1.vercel.app/" target="_blank" rel="noopener noreferrer">Mohammed Armaan Dhakkanjiwala</a></p>
             <div className="footer-bottom-links">
               <a href="#privacy">Privacy Policy</a>
               <a href="#terms">Terms of Service</a>

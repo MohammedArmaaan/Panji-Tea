@@ -1,7 +1,7 @@
 :root {
   --primary-color: #2C5530; /* Deep forest green */
-  --secondary-color: #B38B6D; /* Warm bronze */
-  --accent-color: #8B4513; /* Rich sienna */
+  --secondary-color: #0f3422; /* Warm bronze */
+  --accent-color: #016232; /* Rich sienna */
   --light-bg: #F9F7F3; /* Warm ivory */
   --dark-text: #1A1A1A;
   --light-text: #666666;
@@ -52,7 +52,7 @@
 
 .section-tag {
   display: inline-block;
-  background: var(--secondary-color);
+  background: #016232;
   color: white;
   padding: 8px 20px;
   border-radius: 20px;

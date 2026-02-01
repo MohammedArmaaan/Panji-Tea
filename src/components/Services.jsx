@@ -27,7 +27,7 @@ const Services = () => {
     {
       id: 4,
       name: 'Premium Delivery',
-      description: 'Fast and reliable delivery of your favorite teas right to your doorstep. We ensure freshness and quality with our specialized packaging.',
+      description: 'Fast and reliable delivery of your favorite teas right to your doorstep. We ensure freshness and quality with our specialized and premium tea packaging.',
       icon: '🚚',
       features: ['Free shipping', 'Temperature controlled', 'Express delivery', 'Gift wrapping']
     }
@@ -37,7 +37,8 @@ const Services = () => {
     <section id="services" className="services section-padding">
       <div className="container">
         <div className="section-header text-center mb-5">
-          <h2>Exceptional Services</h2>
+          
+          {/* <h2 style={{color: '#016232'}}>Exceptional Services</h2> */}
           {/* <p className="section-subtitle">
             Beyond great tea, we offer experiences that enrich your tea journey
           </p> */}

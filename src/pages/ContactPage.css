@@ -1,10 +1,11 @@
 /* Import Google Font for the 'Our Story' look */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap');
+/* is page me jitni bhi border color hai unsub ka color #016232 kar do*/
 
 :root {
   /* Colors extracted from your screenshot */
   --panji-bg: #FDFBF7;        /* Warm Cream Background */
-  --panji-brown: #8C5433;     /* The "Our Story" Copper/Brown */
+  --panji-brown: #016232;     /* The "Our Story" Copper/Brown */
   --panji-dark: #333333;      /* Dark Grey Text */
   --panji-gray: #666666;      /* Light Grey Text */
   --panji-border: #E8E4DC;    /* Subtle Separators */

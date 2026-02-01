@@ -128,7 +128,7 @@ const Wholesale = () => {
     <section id="wholesale" className="wholesale section-padding">
       <div className="container">
         <div className="section-header text-center mb-5">
-          <h2>Wholesale Partnership Program</h2>
+          <h2 style={{color: '#016232'}} >Wholesale Partnership Program</h2>
           {/* <p className="section-subtitle">
             Join hundreds of businesses worldwide who trust Panji Tea for their bulk tea needs
           </p> */}

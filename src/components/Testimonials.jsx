@@ -103,7 +103,7 @@ const Testimonials = () => {
           font-size: 2.5rem;
           font-weight: 700;
           margin-bottom: 1rem;
-          color: #333;
+          color: #016232;
         }
         .section-subtitle {
           color: #666;
@@ -204,7 +204,7 @@ const Testimonials = () => {
           margin: 0;
           font-size: 1.05rem;
           font-weight: 700;
-          color: #333;
+          color: #016232;
         }
         .author-role {
           font-size: 0.85rem;

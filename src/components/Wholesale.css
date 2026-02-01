@@ -380,8 +380,16 @@
 
   /* Section Headers Compact */
   .section-header h2 {
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     margin-bottom: 1rem;
+    color: #038946 !important;
+    font-weight: 400;
+  }
+  @media (max-width: 768px) {
+    .section-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: -50px;
+    }
   }
   
   .section-header p {
