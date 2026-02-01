@@ -215,12 +215,12 @@ const Products = ({ isPage = false }) => {
       className={`products ${isPage ? 'page-view' : 'home-view'}`}
       aria-label="Premium Tea Products"
     >
-      {!isPage && (
+      {/* {!isPage && (
         <>
           <div className="bg-decoration leaf-1"></div>
           <div className="bg-decoration leaf-2"></div>
         </>
-      )}
+      )} */}
 
       <div className="container">
         <div className="section-header">

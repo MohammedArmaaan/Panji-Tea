@@ -118,11 +118,13 @@
   background: white;
   border-radius: 24px;
   overflow: hidden;
-  /* Shadow removed from default state */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
   transition: all var(--scroll-speed) cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(179, 139, 109, 0.1);
-  height: 100%;
+  /* --- NEW FLEX PROPERTIES --- */
+  height: 100%;       /* Fill the wrapper height */
+  display: flex;      /* Turn on Flexbox */
+  flex-direction: column; /* Stack children vertically */
   position: relative;
 }
 
@@ -146,6 +148,19 @@
   z-index: 2;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+@media (max-width: 768px) {
+
+  /* --- ADD THIS HERE --- */
+  .category-badge {
+    display: none;
+  }
+  /* --------------------- */
+
+  .category-description {
+    display: none; 
+  }
+  
 }
 
 .category-image {
@@ -224,8 +239,11 @@
 /* Card Content */
 .category-content {
   padding: 30px;
+  /* --- NEW FLEX PROPERTIES --- */
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* This makes the content area grow to fill empty space */
 }
-
 .category-header {
   margin-bottom: 15px;
 }
@@ -282,10 +300,36 @@
   border: 1px solid rgba(44, 85, 48, 0.1);
 }
 
+/* Update this existing class */
+.category-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  transition: all var(--scroll-speed) cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(179, 139, 109, 0.1);
+  /* --- NEW FLEX PROPERTIES --- */
+  height: 100%;       /* Fill the wrapper height */
+  display: flex;      /* Turn on Flexbox */
+  flex-direction: column; /* Stack children vertically */
+  position: relative;
+}
+
+/* Update this existing class */
+.category-content {
+  padding: 30px;
+  /* --- NEW FLEX PROPERTIES --- */
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* This makes the content area grow to fill empty space */
+}
+
+/* Update this existing class */
 .category-actions {
   display: flex;
   gap: 12px;
-  margin-top: auto;
+  /* --- NEW PROPERTY --- */
+  margin-top: auto; /* Pushes the buttons to the very bottom */
 }
 
 .btn {
@@ -754,42 +798,78 @@
     font-size: 2rem;
   }
   
-  .section-subtitle {
-    font-size: 1.1rem;
-    margin-left: 0; /* Fixed margin issue */
-  }
-  
-  /* --- CHANGED: GRID LAYOUT FOR MOBILE --- */
+  /* --- GRID LAYOUT FIX --- */
   .all-categories-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per line */
-    gap: 15px; /* Reduced gap to fit screen */
+    display: grid;
+    /* 2 columns, equal width */
+    grid-template-columns: repeat(2, 1fr); 
+    /* Gap between cards */
+    gap: 15px; 
     padding: 10px 0 40px;
+    /* Ensure rows have equal height */
+    align-items: stretch; 
   }
+
+  /* Grid Item Wrapper */
+.category-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Force wrapper to fill grid cell height */
+}
   
-  /* --- CHANGED: COMPACT CARD STYLES FOR 2-COLUMN GRID --- */
+  /* --- COMPACT CARD STYLES --- */
   .category-image {
-    height: 160px; /* Smaller image height */
+    height: 140px; /* Fixed height for image */
+    flex-shrink: 0; /* Prevent image from squishing */
   }
   
   .category-content {
-    padding: 15px; /* Reduced padding inside card */
+    padding: 12px; /* Smaller padding */
+    justify-content: space-between; /* Distribute space */
   }
 
-  .category-header h3 {
-    font-size: 1.1rem; /* Smaller title */
-    margin-bottom: 5px;
+  .category-header {
+    margin-bottom: 8px;
   }
 
-  /* Hide Description on Mobile Grid to save space */
-  .category-description {
-    display: none; 
-  }
+  /* Update this class for Title */
+.category-header h3 {
+  font-size: 1.5rem;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+  font-weight: 600;
+  
+  /* --- NEW: Limit Title to 1 Line --- */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 1.2em; /* Ensures empty titles still take space */
+}
 
-  /* Compact Meta items (Caffeine/Origin) */
+/* Update this class for Description */
+.category-description {
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 1rem;
+
+  /* --- NEW: Limit Description to 3 Lines --- */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show max 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Optional: Minimum height to align buttons perfectly */
+  min-height: 4.8em; /* 1.6 line-height * 3 lines = 4.8em */
+}
+  /* Compact Meta items */
   .category-meta {
-    gap: 8px;
-    margin-bottom: 10px;
-    font-size: 0.75rem;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 0.7rem;
+    flex-wrap: wrap; /* Allow wrapping if needed */
   }
   
   .meta-item svg {
@@ -800,34 +880,31 @@
   /* Compact Tags */
   .packet-types {
     gap: 4px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
   }
   
   .packet-type {
-    padding: 4px 8px;
-    font-size: 0.7rem;
+    padding: 3px 8px;
+    font-size: 0.65rem;
+    white-space: nowrap; /* Prevent tag text breaking */
   }
 
-  /* Compact Button */
+  /* Force Button to bottom */
+  .category-actions {
+    margin-top: auto; 
+    width: 100%;
+  }
+
   .category-actions .btn {
-    padding: 8px 12px;
-    font-size: 0.85rem;
+    padding: 8px 0; /* Vertical padding only */
+    font-size: 0.8rem;
+    width: 100%; /* Full width button */
+    border-radius: 8px;
   }
 
-  /* --- MODAL MOBILE ADJUSTMENTS --- */
-  .modal-content {
-    border-radius: 20px;
-  }
-  
-  .modal-header,
-  .modal-body {
-    padding: 24px;
-  }
-  
-  .modal-header h2 {
-    font-size: 1.8rem;
-  }
-  
+  /* --- MODAL FIXES --- */
   .modal-actions {
     flex-direction: column;
   }
@@ -841,13 +918,13 @@
   }
 
   .section-footer {
-    margin-top: 40px;
+    margin-top: 30px;
   }
   
   .btn-view-all-footer {
     width: 100%;
     justify-content: center;
-    padding: 14px 20px;
+    padding: 12px 20px;
     font-size: 0.9rem;
   }
 }
@@ -924,6 +1001,22 @@
 /* Header CTA ko hide kar dein agar purani class reh gayi ho */
 .header-cta {
   display: none !important;
+}
+
+@media (max-width: 380px) {
+  /* Switch to 1 column on tiny screens */
+  .all-categories-grid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+  
+  .category-image {
+    height: 180px; /* Allow bigger image on single column */
+  }
+  
+  .category-header h3 {
+    min-height: auto; /* Remove fixed height constraint */
+  }
 }
 
 /* Mobile Responsiveness for footer button */
